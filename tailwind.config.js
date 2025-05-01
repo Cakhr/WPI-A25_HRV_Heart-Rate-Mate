@@ -18,6 +18,10 @@ module.exports = {
         DEFAULT: "var(--text)",
         muted: "var(--text-muted)",
       },
+      icon: {
+        DEFAULT: "var(--icon-stroke)",
+        stroke: "var(--icon-stroke)",
+      },
     },
 		extend: {}
 	},

@@ -4,10 +4,11 @@
 
 :root {
 	--background: #D8E6F3;
-    --primary: #4483BC;
+    --primary: #689CCA;
     --card: #B2CEE6;
     --card-variant: #8DB5D8;
-	--accent: #689CCA;
+	--accent: #4483BC;
+    --icon-stroke: #01040c;
     --text: #0F1C2E;
     --text-muted: #5C6B85; 
 }
@@ -19,6 +20,7 @@
         --card: #1F447A;
         --card-variant: #152D51;
 		--accent: #295AA3;
+        --icon-stroke: #10B0FF;
         --text: #E0E6F0;
         --text-muted: #A0AEC0;
 	}
