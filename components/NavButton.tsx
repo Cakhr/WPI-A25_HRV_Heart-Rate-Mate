@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { RelativePathString, useRouter, usePathname } from 'expo-router';
 import { Pressable, Text, Appearance, ColorSchemeName } from 'react-native';
 import { House, Tally2, Tally3, Tally4 } from 'lucide-react-native';
-import appearanceQuery from '../modules/appearanceQueryy';
+import appearanceQuery from '../modules/appearanceQuery';
 
 const darkIconStroke: string = '#10B0FF';
 const lightIconStroke: string = '#01040c';
