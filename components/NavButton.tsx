@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { RelativePathString, Link } from 'expo-router';
+import { RelativePathString, useRouter, usePathname } from 'expo-router';
 import { Pressable, Text, Appearance, ColorSchemeName } from 'react-native';
-import { House } from 'lucide-react-native';
-import appearanceQuery from '@/modules/appearanceQuery';
+import { House, Tally2, Tally3, Tally4 } from 'lucide-react-native';
+import appearanceQuery from '../modules/appearanceQueryy';
 
 const darkIconStroke: string = '#10B0FF';
 const lightIconStroke: string = '#01040c';
@@ -21,7 +21,6 @@ const pairIcon = (route: RelativePathString) => {
 			}: {
 				colorScheme: ColorSchemeName;
 			}) => {
-				//
 				setAppearance(newColorScheme as ColorSchemeName);
 			}
 		);
@@ -47,11 +46,29 @@ const pairIcon = (route: RelativePathString) => {
 				/>
 			);
 		case '/indexTwo':
-			return <></>;
+			return (
+				<Tally2
+					className={'p-1 transition-all'}
+					size={32}
+					color={color}
+				/>
+			);
 		case '/indexThree':
-			return <></>;
+			return (
+				<Tally3
+					className={'p-1 transition-all'}
+					size={32}
+					color={color}
+				/>
+			);
 		case '/indexFour':
-			return <></>;
+			return (
+				<Tally4
+					className={'p-1 transition-all'}
+					size={32}
+					color={color}
+				/>
+			);
 		default:
 			console.log(
 				'This should not happen lol, no icon matched to route [' +
@@ -63,22 +80,24 @@ const pairIcon = (route: RelativePathString) => {
 };
 
 export const NavButton = (route: RelativePathString) => {
+	const router = useRouter();
+	const currentPath: String = usePathname();
+
 	return (
-		<Link href={route} asChild>
-			<Pressable
-				className={
-					'flex-1 items-center justify-items-center bg-card rounded-2xl p-1 shadow-lg transition-all'
+		<Pressable
+			className={
+				'flex-1 items-center justify-items-center bg-card rounded-2xl p-1 shadow-lg transition-all'
+			}
+			onPress={() => {
+				if ((route as String) !== currentPath) {
+					router.replace(route);
 				}
-			>
-				{route === ('/' as RelativePathString) ? (
-					<>
-						{pairIcon(route)}
-						<Text className={'text-text'}>Home</Text>
-					</>
-				) : (
-					''
-				)}
-			</Pressable>
-		</Link>
+			}}
+		>
+			<>
+				{pairIcon(route)}
+				<Text className={'text-text text-[10px]'}>{route}</Text>
+			</>
+		</Pressable>
 	);
 };

@@ -1,7 +1,7 @@
 import { Menu } from 'lucide-react-native';
 import { Appearance, ColorSchemeName, View } from 'react-native';
 import { useEffect, useState } from 'react';
-import appearanceQuery from '@/modules/appearanceQuery';
+import appearanceQuery from '../modules/appearanceQueryy';
 
 export const HamburgerMenu = () => {
 	// triggers rerender on appearance change
