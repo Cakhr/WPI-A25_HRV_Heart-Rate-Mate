@@ -1,18 +1,24 @@
-**Start dev server w/ no cache (if configs/file structure change, hot reload
-appears broken, ect)**
+## Getting Started
+- If you haven't already, install nvm, npm, and node.js
+  *(https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)*
+- `npm install`
 
-- `npx expo start --clear`
-
-**Start normally**
-
+## Start dev server
 - `npx expo start`
 
-**Check formatting (4 Space tabs)**
+## Start dev server w/ no cache 
+*(configs/file structure change, hot reload appears broken, ect)*
+- `npx expo start --clear`
 
-- `npx prettier --use-tabs --check .`
+## Formatting
+- (check) `npx prettier --use-tabs --check .`
+- (write) `npx prettier --use-tabs --write .`
 
-**Write new formatting**
+You should also install the eslint plugin for vscode and enable eslint formatting on save in settings
 
-- `npx prettier --use-tabs --write .`
+## Linting
+- `npm run lint`
 
-(Also see (OriginalREADME.md))
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
