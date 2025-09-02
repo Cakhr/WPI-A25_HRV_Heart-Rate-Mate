@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FC } from 'react';
 import { RelativePathString, useRouter, usePathname } from 'expo-router';
 import { Pressable, Text, Appearance, ColorSchemeName } from 'react-native';
 import { House, Tally2, Tally3, Tally4 } from 'lucide-react-native';
@@ -7,7 +7,7 @@ import appearanceQuery from '../modules/appearanceQuery';
 const darkIconStroke: string = '#10B0FF';
 const lightIconStroke: string = '#01040c';
 
-const pairIcon = (route: RelativePathString) => {
+const PairIcon: FC<RelativePathString> = ( route ) => {
 	// triggers rerender on appearance change
 	const [appearance, setAppearance] = useState<ColorSchemeName | undefined>(
 		Appearance.getColorScheme()
@@ -25,7 +25,7 @@ const pairIcon = (route: RelativePathString) => {
 			}
 		);
 		return () => listener.remove();
-	}, [setAppearance]);
+	}, [appearance]);
 
 	// set svg stroke colors
 	let color: string = '#FFFFFF'; // svg stroke color
@@ -36,7 +36,7 @@ const pairIcon = (route: RelativePathString) => {
 		color = lightIconStroke;
 	}
 
-	switch (route as String) {
+	switch (route as string) {
 		case '/':
 			return (
 				<House
@@ -81,21 +81,21 @@ const pairIcon = (route: RelativePathString) => {
 
 export const NavButton = (route: RelativePathString) => {
 	const router = useRouter();
-	const currentPath: String = usePathname();
+	const currentPath: string = usePathname();
 
 	return (
 		<Pressable
 			className={
-				'flex-1 items-center justify-items-center bg-card rounded-2xl p-1 shadow-lg transition-all'
+				'flex-1 items-center justify-items-center bg-card rounded-2xl p-1 transition-all'
 			}
 			onPress={() => {
-				if ((route as String) !== currentPath) {
+				if ((route as string) !== currentPath) {
 					router.replace(route);
 				}
 			}}
 		>
 			<>
-				{pairIcon(route)}
+				{PairIcon(route)}
 				<Text className={'text-text text-[10px]'}>{route}</Text>
 			</>
 		</Pressable>

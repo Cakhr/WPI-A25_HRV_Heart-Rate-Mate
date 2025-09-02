@@ -1,9 +1,6 @@
-import { Text, View, Button } from 'react-native';
-import { useRouter } from 'expo-router';
-import { NavButton } from '../../components/NavButton';
+import { Text, View } from 'react-native';
 
 export default function Index() {
-	const router = useRouter();
 	return (
 		<View className={'bg-background size-full'}>
 			<View

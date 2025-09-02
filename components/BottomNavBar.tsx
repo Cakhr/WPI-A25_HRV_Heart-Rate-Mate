@@ -21,14 +21,7 @@ export const BottomNavBar = () => {
 				<SafeAreaProvider className={'m-4'}>
 					<SafeAreaView
 						className={'h-full py-3 rounded-2xl'}
-						style={[
-							styles.containter,
-							{
-								flexDirection: 'row',
-								overflowY: 'hidden',
-								overflowX: 'scroll'
-							}
-						]}
+						style={styles.container}
 					>
 						<ScrollView
 							className={'h-24'}
@@ -39,7 +32,7 @@ export const BottomNavBar = () => {
 								(pathString: string, index: number) => {
 									return (
 										<View
-											className={'size-20 ml-2 shadow-sm'}
+											className={'size-20 ml-2'}
 											key={'navbar.' + index}
 										>
 											{NavButton(
@@ -87,9 +80,12 @@ export const BottomNavBar = () => {
 };
 
 const styles = StyleSheet.create({
-	containter: {
+	container: {
 		flex: 1,
-		padding: 4
+		padding: 4,
+        flexDirection: 'row',
+		overflowY: 'hidden',
+		overflowX: 'scroll'
 	}
 });
 

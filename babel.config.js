@@ -5,18 +5,5 @@ module.exports = function (api) {
 			['babel-preset-expo', { jsxImportSource: 'nativewind' }],
 			'nativewind/babel'
 		],
-		overrides: [
-			{
-				test: (filename) => !filename.startsWith(__dirname),
-				plugins: [
-					[
-						'@babel/plugin-transform-react-jsx',
-						{
-							runtime: 'automatic'
-						}
-					]
-				]
-			}
-		]
 	};
 };

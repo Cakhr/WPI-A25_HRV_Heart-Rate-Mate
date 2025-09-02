@@ -37,7 +37,7 @@ export const HamburgerMenu = () => {
 	return (
 		<View
 			className={
-				'bg-card rounded-full shadow-lg flex-auto items-center justify-center transition-all'
+				'bg-card rounded-full flex-auto items-center justify-center transition-all'
 			}
 		>
 			<Menu className={'mx-auto'} size={34} color={color} />
