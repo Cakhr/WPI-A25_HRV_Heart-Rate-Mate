@@ -22,3 +22,9 @@ You should also install the eslint plugin for vscode and enable eslint formattin
 - [development build](https://docs.expo.dev/develop/development-builds/introduction/)
 - [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
 - [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+
+## Stack
+- React-Native, Expo, SQLite, Drizzle ORM
+
+## Generate Migration
+- `npx drizzle-kit generate`
