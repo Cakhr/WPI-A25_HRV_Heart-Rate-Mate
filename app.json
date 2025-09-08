@@ -28,6 +28,17 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 30
+          },
+          "ios": {
+            "deploymentTarget": "18.0"
+          }
+        }
+      ],
       "expo-router",
       [
         "expo-splash-screen",
@@ -44,7 +55,14 @@
           "enableFTS": true,
           "useSQLCipher": true
         }
-      ]
+      ],
+      [
+        "react-native-vision-camera",
+        {
+          "cameraPermissionText": "$(PRODUCT_NAME) needs access to your Camera."
+        }
+      ],
+      "expo-build-properties"
     ],
     "experiments": {
       "typedRoutes": true

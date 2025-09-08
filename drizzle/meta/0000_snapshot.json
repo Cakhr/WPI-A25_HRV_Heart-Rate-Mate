@@ -1,12 +1,58 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "ade40ff6-1d91-47a1-a245-437265f51755",
+  "id": "b5e60a2b-4057-4b18-95b0-faae1c22ab47",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
-    "users_table": {
-      "name": "users_table",
+    "measurement_captures_table": {
+      "name": "measurement_captures_table",
       "columns": {
+        "captureId": {
+          "name": "captureId",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "captureResolution": {
+          "name": "captureResolution",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "captureDuration": {
+          "name": "captureDuration",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "measurement_captures_table_captureId_unique": {
+          "name": "measurement_captures_table_captureId_unique",
+          "columns": [
+            "captureId"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "measurements_table": {
+      "name": "measurements_table",
+      "columns": {
+        "captureId": {
+          "name": "captureId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
         "id": {
           "name": "id",
           "type": "integer",
@@ -14,38 +60,73 @@
           "notNull": true,
           "autoincrement": true
         },
-        "name": {
-          "name": "name",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "age": {
-          "name": "age",
+        "red": {
+          "name": "red",
           "type": "integer",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         },
-        "email": {
-          "name": "email",
-          "type": "text",
+        "green": {
+          "name": "green",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "blue": {
+          "name": "blue",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "alpha": {
+          "name": "alpha",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "avgRed": {
+          "name": "avgRed",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "avgGreen": {
+          "name": "avgGreen",
+          "type": "numeric",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         }
       },
       "indexes": {
-        "users_table_email_unique": {
-          "name": "users_table_email_unique",
+        "measurements_table_captureId_unique": {
+          "name": "measurements_table_captureId_unique",
           "columns": [
-            "email"
+            "captureId"
           ],
           "isUnique": true
         }
       },
-      "foreignKeys": {},
+      "foreignKeys": {
+        "measurements_table_captureId_measurement_captures_table_captureId_fk": {
+          "name": "measurements_table_captureId_measurement_captures_table_captureId_fk",
+          "tableFrom": "measurements_table",
+          "tableTo": "measurement_captures_table",
+          "columnsFrom": [
+            "captureId"
+          ],
+          "columnsTo": [
+            "captureId"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},
       "checkConstraints": {}

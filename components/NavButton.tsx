@@ -1,7 +1,7 @@
 import { useState, useEffect, FC } from 'react';
 import { RelativePathString, useRouter, usePathname } from 'expo-router';
 import { Pressable, Text, Appearance, ColorSchemeName } from 'react-native';
-import { House, Tally2, Tally3, Tally4 } from 'lucide-react-native';
+import { House, Tally2, Tally3, Camera } from 'lucide-react-native';
 import appearanceQuery from '../modules/appearanceQuery';
 
 const darkIconStroke: string = '#10B0FF';
@@ -43,9 +43,9 @@ const PairIcon: FC<RelativePathString> = (route) => {
       return (
         <Tally3 className={'p-1 transition-all'} size={32} color={color} />
       );
-    case '/indexFour':
+    case '/camera':
       return (
-        <Tally4 className={'p-1 transition-all'} size={32} color={color} />
+        <Camera className={'p-1 transition-all'} size={32} color={color} />
       );
     default:
       console.log(

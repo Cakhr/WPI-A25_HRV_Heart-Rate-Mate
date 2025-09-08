@@ -11,7 +11,7 @@ export const BottomNavBar = () => {
     '/',
     '/indexTwo',
     '/indexThree',
-    '/indexFour'
+    '/camera'
   ];
   return (
     <View className={'flex w-full h-fit'}>
