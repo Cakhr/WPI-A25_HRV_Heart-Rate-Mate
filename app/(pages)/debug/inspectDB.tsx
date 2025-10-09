@@ -1,4 +1,5 @@
-import { Text, View } from 'react-native';
+import { TextFormatted } from '@/components/Util/TextFormatted';
+import { View } from 'react-native';
 
 export default function Index() {
   return (
@@ -11,9 +12,11 @@ export default function Index() {
           alignItems: 'center'
         }}
       >
-        <Text className={'bg-card p-2 rounded-lg text-text'}>
-          Edit app/pages/indexThree.tsx to edit this screen.
-        </Text>
+        <TextFormatted
+          size={'md'}
+          weight={'bold'}
+          content={'Under Construction :)'}
+        />
       </View>
     </View>
   );

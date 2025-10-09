@@ -1,11 +1,11 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "b5e60a2b-4057-4b18-95b0-faae1c22ab47",
+  "id": "1f93f731-46d7-4e6a-b79b-174d665f902d",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
-    "measurement_captures_table": {
-      "name": "measurement_captures_table",
+    "custom_breathing_presets_table": {
+      "name": "custom_breathing_presets_table",
       "columns": {
         "captureId": {
           "name": "captureId",
@@ -60,6 +60,321 @@
           "notNull": true,
           "autoincrement": true
         },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(current_timestamp)"
+        },
+        "updatedAt": {
+          "name": "updatedAt",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(current_timestamp)"
+        },
+        "breathIn": {
+          "name": "breathIn",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": 4.8
+        },
+        "breathOut": {
+          "name": "breathOut",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": 4.8
+        },
+        "duration": {
+          "name": "duration",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": 2
+        }
+      },
+      "indexes": {
+        "custom_breathing_presets_table_id_unique": {
+          "name": "custom_breathing_presets_table_id_unique",
+          "columns": [
+            "id"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "custom_journal_prompts_table": {
+      "name": "custom_journal_prompts_table",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(current_timestamp)"
+        },
+        "updatedAt": {
+          "name": "updatedAt",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(current_timestamp)"
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "'Default title'"
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "'Default journal entry'"
+        }
+      },
+      "indexes": {
+        "custom_journal_prompts_table_id_unique": {
+          "name": "custom_journal_prompts_table_id_unique",
+          "columns": [
+            "id"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "journal_entries_table": {
+      "name": "journal_entries_table",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(current_timestamp)"
+        },
+        "updatedAt": {
+          "name": "updatedAt",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(current_timestamp)"
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "'Default title'"
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "'Default description'"
+        },
+        "entry": {
+          "name": "entry",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "'Default journal entry'"
+        }
+      },
+      "indexes": {
+        "journal_entries_table_id_unique": {
+          "name": "journal_entries_table_id_unique",
+          "columns": [
+            "id"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "measurement_sessions_table": {
+      "name": "measurement_sessions_table",
+      "columns": {
+        "captureId": {
+          "name": "captureId",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(current_timestamp)"
+        },
+        "resolution": {
+          "name": "resolution",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "duration": {
+          "name": "duration",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "analyzed": {
+          "name": "analyzed",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": false
+        }
+      },
+      "indexes": {
+        "measurement_sessions_table_captureId_unique": {
+          "name": "measurement_sessions_table_captureId_unique",
+          "columns": [
+            "captureId"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "measurements_table": {
+      "name": "measurements_table",
+      "columns": {
+        "captureId": {
+          "name": "captureId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "avgRed": {
+          "name": "avgRed",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "avgGreen": {
+          "name": "avgGreen",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "avgBlue": {
+          "name": "avgBlue",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "ms": {
+          "name": "ms",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "measurements_table_captureId_measurement_sessions_table_captureId_fk": {
+          "name": "measurements_table_captureId_measurement_sessions_table_captureId_fk",
+          "tableFrom": "measurements_table",
+          "tableTo": "measurement_sessions_table",
+          "columnsFrom": [
+            "captureId"
+          ],
+          "columnsTo": [
+            "captureId"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "measurements_fourier_table": {
+      "name": "measurements_fourier_table",
+      "columns": {
+        "captureId": {
+          "name": "captureId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
         "red": {
           "name": "red",
           "type": "integer",
@@ -81,42 +396,20 @@
           "notNull": true,
           "autoincrement": false
         },
-        "alpha": {
-          "name": "alpha",
+        "ms": {
+          "name": "ms",
           "type": "integer",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
-        },
-        "avgRed": {
-          "name": "avgRed",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "avgGreen": {
-          "name": "avgGreen",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
         }
       },
-      "indexes": {
-        "measurements_table_captureId_unique": {
-          "name": "measurements_table_captureId_unique",
-          "columns": [
-            "captureId"
-          ],
-          "isUnique": true
-        }
-      },
+      "indexes": {},
       "foreignKeys": {
-        "measurements_table_captureId_measurement_captures_table_captureId_fk": {
-          "name": "measurements_table_captureId_measurement_captures_table_captureId_fk",
-          "tableFrom": "measurements_table",
-          "tableTo": "measurement_captures_table",
+        "measurements_fourier_table_captureId_measurement_sessions_table_captureId_fk": {
+          "name": "measurements_fourier_table_captureId_measurement_sessions_table_captureId_fk",
+          "tableFrom": "measurements_fourier_table",
+          "tableTo": "measurement_sessions_table",
           "columnsFrom": [
             "captureId"
           ],
@@ -125,8 +418,47 @@
           ],
           "onDelete": "no action",
           "onUpdate": "no action"
+        },
+        "measurements_fourier_table_id_measurements_table_id_fk": {
+          "name": "measurements_fourier_table_id_measurements_table_id_fk",
+          "tableFrom": "measurements_fourier_table",
+          "tableTo": "measurements_table",
+          "columnsFrom": [
+            "id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
         }
       },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "settings_table": {
+      "name": "settings_table",
+      "columns": {
+        "firstTimeSetup": {
+          "name": "firstTimeSetup",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": false
+        },
+        "userName": {
+          "name": "userName",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "'User'"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},
       "checkConstraints": {}
