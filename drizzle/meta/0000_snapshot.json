@@ -7,52 +7,6 @@
     "custom_breathing_presets_table": {
       "name": "custom_breathing_presets_table",
       "columns": {
-        "captureId": {
-          "name": "captureId",
-          "type": "integer",
-          "primaryKey": true,
-          "notNull": true,
-          "autoincrement": true
-        },
-        "captureResolution": {
-          "name": "captureResolution",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
-        "captureDuration": {
-          "name": "captureDuration",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        }
-      },
-      "indexes": {
-        "measurement_captures_table_captureId_unique": {
-          "name": "measurement_captures_table_captureId_unique",
-          "columns": [
-            "captureId"
-          ],
-          "isUnique": true
-        }
-      },
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "checkConstraints": {}
-    },
-    "measurements_table": {
-      "name": "measurements_table",
-      "columns": {
-        "captureId": {
-          "name": "captureId",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        },
         "id": {
           "name": "id",
           "type": "integer",
