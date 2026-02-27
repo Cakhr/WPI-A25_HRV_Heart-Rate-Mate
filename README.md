@@ -1,7 +1,8 @@
 ## Project Overview
 This prototype, known as **Heart Rate Mate**, was initially developed over a 7 week period as a ***Heart Rate Variability Biofeedback (HRVB)*** educational mobile application for Worcester Polytechnic Institute's International Qualifying Project program. Started in A-term by the A-25 Heart Rate Variability team, for the University of Reykjavik. 
 
-*(Digital WPI link to be added)*
+*(Digital WPI link to research paper)*
+https://digital.wpi.edu/concern/student_works/6t053m24c?locale=en
 
 React Native was chosen for its platform agnosticism and existing familiarity with React. 
 
